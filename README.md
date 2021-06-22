@@ -1,6 +1,6 @@
 # Quiz
 
-Work sample done in the wrokplace.
+Work sample done in the wrokplace myself. Simple HTML + CSS + JavaScript + PHP
 Refer to https://www.sitepoint.com/simple-javascript-quiz/
 
 User starts with the following steps:
@@ -9,11 +9,12 @@ User starts with the following steps:
 2. Prsses [Start] to 'Quiz page' ; [Leave] to close the page
 3. Total 9 questions in 3 parts, 10 mins to finish (2 mins left reminder)
 4. Pass 2/3; otherwise restart the quiz to 'Transition page' 
+5. All the data could be sent to the MySQL server via submit.php
 
 
 Quiz page
 ![sample](/quiz.PNG)
 
 Transition page
-![transiotn.PNG](/transition.PNG)
+![transition](/transiotn.PNG)
 
