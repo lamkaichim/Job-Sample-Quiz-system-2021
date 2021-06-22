@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh_HK">
+<head>
+    <title>My Quiz</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>  
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  </head>
+
+<style type="text/css">
+
+   input[type=radio],
+   input.radio {
+    float: left;
+    clear: none;
+    margin: 7px 10px 5px 20px;
+    border: 0px;
+    width: 30px;
+    height: 1.1em;
+  }
+  
+  body{
+    font-size: 40px;
+    font-family: sans-serif;
+    color: #333333;
+  }
+  .question{
+    font-weight: 600;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    border-top: #ffffff groove;
+    margin-right: 20px;
+    margin-left: 20px;
+    
+  }
+  
+  .answers {
+    display: inline-flex;
+    margin-right: 20px;
+    padding-top: 10px;
+    color: #333333; 
+  }
+
+  .answers label{
+    display: block;
+  }
+
+  label, input, textarea, select, button{
+    font-weight: 600;
+  }
+
+  /* collapsible */
+  .collapsible {
+  background-color: #007bff; 
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  border-radius: .25rem;
+  text-align: center;
+  outline: none;
+  font-family: sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.active, .collapsible:hover {
+  background-color: #579fec;
+}
+
+.collapsible:after {
+  content: '\002B'; /* Unicode character for "plus" sign (+) */
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212"; /* Unicode character for "minus" sign (-) */
+}
+
+.content {
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: white;
+  /* #cde5fd */
+}
+
+button{
+   margin-top: 20px;
+}
+
+div.ex1 {
+  margin: 20px 0 20px 0;
+  height: 800px;
+  overflow: auto;
+  border-right: inset;
+}
+
+.one_half{
+  /* margin: 0 0 0 40px; */
+  display: inline;
+}
+
+img{
+  height: 500px;
+  width:100%;
+  display: inline-block;
+}
+</style>
+  <!-- main body -->
+<body id="top">
+
+  <main class="hoc container clear" style="max-width: 1500px;padding-top: 10px;"> 
+  <h1 style="text-align: center;"><strong>My Quiz</strong>
+    </h1>
+    <div class="alert alert-warning" role="alert" >Time : <span id="time">10:00</span></div>
+   
+    <!-- Quiz 1-->
+      <button type="button" class="collapsible" id="first">Part A</button>
+      <div  class="content" >
+            <div id="quiz" class="ex1"></div>
+      </div>
+
+      <!-- Quiz 2 -->
+      <button type="button" class="collapsible" >Part B</button>
+      <div  class="content">
+            <div id="quiz2" class="ex1"></div>
+      </div>
+  
+      <!-- Quiz 3 -->
+      <button type="button" class="collapsible">Part C</button>
+      <div class="content">
+            <div id="quiz3" class="ex1"></div>
+       </div>
+
+      <button class="btn btn-primary" id="submit">Submit</button>
+      <button id="openAll" class="btn btn-outline-primary">Open All</button> 
+      <button id="closeAll" class="btn btn-outline-primary">Close All</button>
+      <h2 id="results"></h2>
+      
+  </div>
+
+  <div class="modal fade" id="Sampleimage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Tips image</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src ="sample.PNG"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+<!-- / main body --> 
+
+<!-- backtotop -->
+<a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+
+<!-- JAVASCRIPTS -->
+<script src="layout/scripts/jquery.min.js"></script>
+<script src="layout/scripts/jquery.backtotop.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="layout/scripts/quiz.js"></script>
+<script src="layout/scripts/collapsible.js"></script>
+<script src="layout/scripts/countdown.js"></script>
+<script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"> </script>
+
+</body>
+<!-- footer -->
+<footer>
+  <div class="wrapper row5" style="background-color: #7DB9DE;color: black;position: fixed;bottom: 0;">
+    <div id="copyright" class="hoc clear"> 
+      <p class="fl_left" style="font-size: 12px;">Welcome to reference</p>
+    </div>
+  </div>
+</footer>
+</html>
+
+
+
+
+
