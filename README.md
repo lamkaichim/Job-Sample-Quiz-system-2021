@@ -1,7 +1,6 @@
 # Quiz
 
-Work sample done in the wrokplace myself. Simple HTML + CSS + JavaScript + PHP
-Refer to https://www.sitepoint.com/simple-javascript-quiz/
+HTML + CSS + JavaScript + PHP
 
 User starts with the following steps:
 
@@ -18,3 +17,4 @@ Quiz page
 Transition page
 ![transition](/transiotn.PNG)
 
+Mainly idea refer to https://www.sitepoint.com/simple-javascript-quiz/
